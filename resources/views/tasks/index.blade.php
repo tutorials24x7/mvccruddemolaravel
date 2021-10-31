@@ -30,7 +30,7 @@
 				<div class="col-6 p-2 border border-right-0">{{ $task->description }}</div>
 				<div class="col p-2 border border-right-0">{{ $task->getStatusStr() }}</div>
 				<div class="col p-2 border">
-					<form action="{{ route( 'tasks.destroy', $task->id ) }}" method="POST">
+					<form action="{{ route( 'tasks.destroy', $task->id ) }}" method="POST" onsubmit="return confirmDelete();">
 						<span class="trigger-info cursor-pointer" title="Info">
 							<i class="fas fa-info text-success fa-lg"></i>
 						</span>

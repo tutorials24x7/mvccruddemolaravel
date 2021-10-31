@@ -42,6 +42,11 @@
 					}
 				});
 			});
+
+			function confirmDelete() {
+
+				return confirm( "Are you sure you want to delete the selected row?" );
+			}
 		</script>
 
 		<style type="text/css">
@@ -55,12 +60,12 @@
 		</style>
 	</head>
 	<body>
-	<header>
-		<div class="p-5 text-center bg-light">
-			<h1 class="mb-3">Task Manager</h1>
-			<h4 class="mb-3">(Manage Tasks)</h4>
-		</div>
-	</header>
+		<header>
+			<div class="p-5 text-center bg-light">
+				<h1 class="mb-3">Task Manager</h1>
+				<h4 class="mb-3">(Manage Tasks)</h4>
+			</div>
+		</header>
 		<div class="container">
 			@yield( 'content' )
 		</div>

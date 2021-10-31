@@ -19,7 +19,7 @@ class Task extends Model {
 		self::STATUS_COMPLETED => 'Completed'
 	];
 
-	use HasFactory;
+    use HasFactory;
 
 	/**
 	 * The storage format of the model's date columns.
@@ -39,5 +39,20 @@ class Task extends Model {
 	public function getStatusStr() {
 
 		return self::$statusMap[ $this->status ];
+	}
+
+	/**
+	 * The "booting" method of the model.
+	 *
+	 * @return void
+	 */
+	protected static function boot() {
+
+		parent::boot();
+
+		static::creating(function ($query) {
+			$query->hoursRequired = $query->hoursRequired ?? 0;
+			$query->hoursConsumed = $query->hoursConsumed ?? 0;
+		});
 	}
 }
